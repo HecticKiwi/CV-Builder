@@ -20,6 +20,5 @@
         "react/jsx-filename-extension": "off",
         "react/prop-types": "off",
         "react/prefer-stateless-function": "off"
-        // "react/jsx-one-expression-per-line": "off"
     }
 }

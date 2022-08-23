@@ -4,17 +4,18 @@ export default class GeneralSection extends React.Component {
   render() {
     return (
       <section className="general">
+        <h2>General</h2>
         <label htmlFor="name">
-          <span>Name:</span>
-          <input type="text" name="name" id="name" />
+          <span className="field-label">Name:</span>
+          <input className="field-input" type="text" name="name" id="name" />
         </label>
         <label htmlFor="email">
-          <span>Email:</span>
-          <input type="email" name="nname" id="name" />
+          <span className="field-label">Email:</span>
+          <input className="field-input" type="email" name="email" id="email" />
         </label>
         <label htmlFor="phone-number">
-          <span>Phone Number:</span>
-          <input type="phone-number" email="name" id="name" />
+          <span className="field-label">Phone Number:</span>
+          <input className="field-input" type="text" name="phone-number" id="phone-number" />
         </label>
       </section>
     );
