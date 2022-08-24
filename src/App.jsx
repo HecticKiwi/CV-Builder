@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './styles/App.scss';
 import uniqid from 'uniqid';
 import GeneralSection from './components/GeneralSection';
@@ -6,141 +6,114 @@ import EducationalSection from './components/EducationalSection';
 import ExperienceSection from './components/ExperienceSection';
 import Preview from './components/Preview';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  const [general, setGeneral] = useState({
+    name: '',
+    email: '',
+    phoneNumber: '',
+  });
+  const [education, setEducation] = useState([{
+    university: '',
+    degree: '',
+    from: '',
+    to: '',
+    key: uniqid(),
+  }]);
+  const [experience, setExperience] = useState([{
+    company: '',
+    city: '',
+    position: '',
+    description: '',
+    from: '',
+    to: '',
+    key: uniqid(),
+  }]);
 
-    this.state = {
-      general: {
-        name: '',
-        email: '',
-        phoneNumber: '',
-      },
-      education: [{
-        university: '',
-        degree: '',
-        from: '',
-        to: '',
-        key: uniqid(),
-      }],
-      experience: [{
-        company: '',
-        city: '',
-        position: '',
-        description: '',
-        from: '',
-        to: '',
-        key: uniqid(),
-      }],
-    };
-
-    this.generalChange = this.generalChange.bind(this);
-    this.educationChange = this.educationChange.bind(this);
-    this.addEducationItem = this.addEducationItem.bind(this);
-    this.deleteEducationItem = this.deleteEducationItem.bind(this);
-    this.experienceChange = this.experienceChange.bind(this);
-    this.addExperienceItem = this.addExperienceItem.bind(this);
-  }
-
-  generalChange(e) {
-    const { general } = this.state;
+  const generalChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ general: { ...general, [name]: value } });
-  }
+    setGeneral((prev) => ({ ...prev, [name]: value }));
+  };
 
-  educationChange(e, i) {
-    const { education } = this.state;
+  const educationChange = (e, i) => {
     const { name, value } = e.target;
-    const items = [...education];
-    items[i] = { ...items[i] };
-    items[i][name] = value;
-    this.setState({ education: items });
-  }
-
-  addEducationItem() {
-    const { education } = this.state;
-    this.setState({
-      education:
-        [...education, {
-          university: '',
-          degree: '',
-          from: '',
-          to: '',
-          key: uniqid(),
-        },
-        ],
+    setEducation((prev) => {
+      const items = [...prev];
+      items[i] = { ...items[i] };
+      items[i][name] = value;
+      return items;
     });
-  }
+  };
 
-  deleteEducationItem(i) {
-    const { education } = this.state;
-    this.setState({ education: education.filter((_, j) => i !== j) });
-  }
+  const addEducationItem = () => {
+    setEducation((prev) => [...prev, {
+      university: '',
+      degree: '',
+      from: '',
+      to: '',
+      key: uniqid(),
+    }]);
+  };
 
-  experienceChange(e, i) {
-    const { experience } = this.state;
+  const deleteEducationItem = (i) => {
+    setEducation((prev) => [...prev].splice(i, 1));
+  };
+
+  const experienceChange = (e, i) => {
     const { name, value } = e.target;
-    const items = [...experience];
-    items[i] = { ...items[i] };
-    items[i][name] = value;
-    this.setState({ experience: items });
-  }
-
-  addExperienceItem() {
-    const { experience } = this.state;
-    this.setState({
-      experience: [
-        ...experience, {
-          company: '',
-          city: '',
-          position: '',
-          description: '',
-          from: '',
-          to: '',
-          key: uniqid(),
-        },
-      ],
+    setExperience((prev) => {
+      const items = [...prev];
+      items[i] = { ...items[i] };
+      items[i][name] = value;
+      return items;
     });
-  }
+  };
 
-  render() {
-    const { general, education, experience } = this.state;
+  const addExperienceItem = () => {
+    setExperience((prev) => [...prev, {
+      company: '',
+      city: '',
+      position: '',
+      description: '',
+      from: '',
+      to: '',
+      key: uniqid(),
+    }]);
+  };
 
-    return (
-      <div className="App">
-        <header>
-          <h1 className="main-header">CV Application</h1>
-        </header>
-        <main>
-          <div className="form">
-            <GeneralSection
-              general={general}
-              handleChange={this.generalChange}
-            />
-            <EducationalSection
-              education={education}
-              handleChange={this.educationChange}
-              addItem={this.addEducationItem}
-              deleteItem={this.deleteEducationItem}
-            />
-            <ExperienceSection
-              experience={experience}
-              handleChange={this.experienceChange}
-              addItem={this.addExperienceItem}
-            />
-          </div>
-          <div className="preview">
-            <Preview />
-          </div>
-        </main>
-        <footer>
-          <p>
-            By
-            {' '}
-            <a href="https://hectickiwi.github.io/">HecticKiwi</a>
-          </p>
-        </footer>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header>
+        <h1 className="main-header">CV Application</h1>
+      </header>
+      <main>
+        <div className="form">
+          <GeneralSection
+            general={general}
+            handleChange={generalChange}
+          />
+          <EducationalSection
+            education={education}
+            handleChange={educationChange}
+            addItem={addEducationItem}
+            deleteItem={deleteEducationItem}
+          />
+          <ExperienceSection
+            experience={experience}
+            handleChange={experienceChange}
+            addItem={addExperienceItem}
+          />
+        </div>
+        <div className="preview">
+          <Preview />
+        </div>
+      </main>
+      <footer>
+        <p>
+          By
+          {' '}
+          <a href="https://hectickiwi.github.io/">HecticKiwi</a>
+        </p>
+      </footer>
+    </div>
+  );
 }
