@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class ExperienceSection extends Component {
   render() {
     const {
-      experience, handleChange, addItem,
+      experience, handleChange, addItem, deleteItem,
     } = this.props;
 
     const experienceItems = experience.map((item, i) => {
@@ -40,7 +40,7 @@ export default class ExperienceSection extends Component {
             </label>
           </div>
           <div className="button-group">
-            <button className="delete" type="button">Delete</button>
+            <button className="delete" type="button" onClick={deleteItem}>Delete</button>
             {i === experience.length - 1 && <button className="add" type="button" onClick={addItem}>Add</button>}
           </div>
         </div>

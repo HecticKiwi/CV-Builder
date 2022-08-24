@@ -12,6 +12,7 @@ export default function App() {
     email: '',
     phoneNumber: '',
   });
+
   const [education, setEducation] = useState([{
     university: '',
     degree: '',
@@ -19,6 +20,7 @@ export default function App() {
     to: '',
     key: uniqid(),
   }]);
+
   const [experience, setExperience] = useState([{
     company: '',
     city: '',
@@ -29,12 +31,12 @@ export default function App() {
     key: uniqid(),
   }]);
 
-  const generalChange = (e) => {
+  const changeGeneral = (e) => {
     const { name, value } = e.target;
     setGeneral((prev) => ({ ...prev, [name]: value }));
   };
 
-  const educationChange = (e, i) => {
+  const changeEducation = (e, i) => {
     const { name, value } = e.target;
     setEducation((prev) => {
       const items = [...prev];
@@ -44,7 +46,7 @@ export default function App() {
     });
   };
 
-  const addEducationItem = () => {
+  const addEducation = () => {
     setEducation((prev) => [...prev, {
       university: '',
       degree: '',
@@ -54,11 +56,15 @@ export default function App() {
     }]);
   };
 
-  const deleteEducationItem = (i) => {
-    setEducation((prev) => [...prev].splice(i, 1));
+  const deleteEducation = (i) => {
+    setEducation((prev) => {
+      const items = [...prev];
+      items.splice(i, 1);
+      return items;
+    });
   };
 
-  const experienceChange = (e, i) => {
+  const changeExperience = (e, i) => {
     const { name, value } = e.target;
     setExperience((prev) => {
       const items = [...prev];
@@ -68,7 +74,7 @@ export default function App() {
     });
   };
 
-  const addExperienceItem = () => {
+  const addExperience = () => {
     setExperience((prev) => [...prev, {
       company: '',
       city: '',
@@ -80,6 +86,14 @@ export default function App() {
     }]);
   };
 
+  const deleteExperience = (i) => {
+    setExperience((prev) => {
+      const items = [...prev];
+      items.splice(i, 1);
+      return items;
+    });
+  };
+
   return (
     <div className="App">
       <header>
@@ -89,18 +103,19 @@ export default function App() {
         <div className="form">
           <GeneralSection
             general={general}
-            handleChange={generalChange}
+            handleChange={changeGeneral}
           />
           <EducationalSection
             education={education}
-            handleChange={educationChange}
-            addItem={addEducationItem}
-            deleteItem={deleteEducationItem}
+            handleChange={changeEducation}
+            addItem={addEducation}
+            deleteItem={deleteEducation}
           />
           <ExperienceSection
             experience={experience}
-            handleChange={experienceChange}
-            addItem={addExperienceItem}
+            handleChange={changeExperience}
+            addItem={addExperience}
+            deleteItem={deleteExperience}
           />
         </div>
         <div className="preview">
