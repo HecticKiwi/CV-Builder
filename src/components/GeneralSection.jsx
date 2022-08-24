@@ -2,9 +2,9 @@ import React from 'react';
 
 export default class GeneralSection extends React.Component {
   render() {
-    const {
-      name, email, phoneNumber, handleChange,
-    } = this.props;
+    const { general, handleChange } = this.props;
+    const { name, email, phoneNumber } = general;
+
     return (
       <section className="general">
         <h2>General</h2>
