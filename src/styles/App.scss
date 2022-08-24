@@ -95,12 +95,13 @@ a {
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.education-item {
+.education-item,
+.experience-item {
     display: grid;
     gap: 1rem;
 }
 
-.study-period {
+.period {
     display: flex;
     gap: 1rem;
 }
