@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles/App.scss';
+import './styles/FormSections.scss';
 import uniqid from 'uniqid';
 import GeneralSection from './components/GeneralSection';
 import EducationalSection from './components/EducationalSection';

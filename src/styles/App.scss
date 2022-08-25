@@ -31,32 +31,6 @@ main {
     padding: 2rem;
 }
 
-section {
-    display: grid;
-    gap: 1rem;
-}
-
-label {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-button {
-    @include border-shadow();
-    border-radius: 5px;
-    padding: 0.3rem 0.6rem;
-    cursor: pointer;
-    transition: filter var(--transition-time);
-}
-
-button:hover {
-    filter: brightness(0.95);
-}
-
-button:active {
-    filter: brightness(0.9);
-}
 
 footer {
     padding: 1rem;
@@ -76,50 +50,4 @@ a {
     border-radius: 10px;
     display: grid;
     gap: 2rem;
-}
-
-.field-label {
-    width: var(--left-space);
-    text-align: right;
-}
-
-.field-input {
-    @include border-shadow();
-    flex: 1 1 auto;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-
-.field-input:focus {
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.education-item,
-.experience-item {
-    display: grid;
-    gap: 1rem;
-}
-
-.period {
-    display: flex;
-    gap: 1rem;
-}
-
-.field-label--to {
-    width: auto;
-}
-
-.button-group {
-    margin-left: calc(var(--left-space) + 1rem);
-    display: flex;
-    gap: 1rem;
-}
-
-.delete {
-    background-color: rgb(236, 199, 199);
-}
-
-.add {
-    background-color: rgb(199, 236, 199);
 }
