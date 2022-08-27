@@ -153,7 +153,7 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <h1 className="main-header">CV Application</h1>
+        <h1 className="main-header">CV Builder</h1>
       </header>
       <main className="app-main">
         <div className="form">
