@@ -31,6 +31,7 @@
     padding: 2rem;
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     gap: 2rem;
     justify-content: center;
 }
@@ -68,10 +69,6 @@ a {
 
 .load-example {
     background-color: rgb(236, 224, 199);
-}
-
-.export-to-pdf {
-    background-color: rgb(199, 236, 199);
 }
 
 .reset {

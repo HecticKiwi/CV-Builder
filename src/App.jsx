@@ -174,7 +174,6 @@ export default function App() {
             deleteItem={deleteExperience}
           />
           <div className="buttons">
-            <button className="export-to-pdf" type="button">Export to PDF</button>
             <button className="load-example" type="button" onClick={loadExample}>Load Example</button>
             <button className="reset" type="button" onClick={reset}>Reset</button>
           </div>
