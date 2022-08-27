@@ -10,7 +10,7 @@
 .Preview {
     @include border-shadow();
     width: min(800px, 100%);
-    // padding: 2rem;
+    aspect-ratio: 8.5/11;
 }
 
 address {

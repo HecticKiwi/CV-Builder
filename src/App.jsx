@@ -7,30 +7,86 @@ import ExperienceSection from './components/ExperienceSection';
 import Preview from './components/Preview';
 
 export default function App() {
-  const [general, setGeneral] = useState({
+  const baseGeneral = {
     name: '',
     title: '',
     email: '',
     phoneNumber: '',
     description: '',
-  });
-
-  const [education, setEducation] = useState([{
+  };
+  const baseEducation = [{
     university: '',
     degree: '',
     from: '',
     to: '',
     key: uniqid(),
-  }]);
-
-  const [experience, setExperience] = useState([{
+  }];
+  const baseExperience = [{
     company: '',
     position: '',
     description: '',
     from: '',
     to: '',
     key: uniqid(),
-  }]);
+  }];
+
+  const [general, setGeneral] = useState(baseGeneral);
+  const [education, setEducation] = useState(baseEducation);
+  const [experience, setExperience] = useState(baseExperience);
+
+  const reset = () => {
+    setGeneral(baseGeneral);
+    setEducation(baseEducation);
+    setExperience(baseExperience);
+  };
+
+  const loadExample = () => {
+    setGeneral({
+      name: 'Aaron Heiss',
+      title: 'Software Developer',
+      email: 'heiss@outlook.com',
+      phoneNumber: '(123) 456-7890',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra. Imperdiet proin fermentum leo vel orci. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Nullam vehicula ipsum a arcu cursus vitae congue mauris.',
+    });
+    setEducation([{
+      university: 'University of Awesome',
+      degree: 'Bachelor of Engineering',
+      from: '2008-07-02',
+      to: '2012-04-18',
+      key: uniqid(),
+    },
+    {
+      university: 'The Odin Project',
+      degree: 'Full Stack Web Development',
+      from: '2010-05-15',
+      to: '2011-02-06',
+      key: uniqid(),
+    }]);
+    setExperience([{
+      company: 'Google',
+      position: 'Senior Web Developer',
+      description: 'Quisque sed facilisis tortor. Morbi posuere luctus risus sit amet mattis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      from: '2019-01-30',
+      to: '2022-03-21',
+      key: uniqid(),
+    },
+    {
+      company: 'Netflix',
+      position: 'Junior Web Developer',
+      description: 'Nulla ornare varius pharetra. Duis eget lacinia nibh. Aliquam dapibus eleifend diam, non tristique leo venenatis et. Proin condimentum nisi nunc, sed pharetra lectus tempor ac.',
+      from: '2016-05-27',
+      to: '2018-09-14',
+      key: uniqid(),
+    },
+    {
+      company: 'Spotify',
+      position: 'QA Tester',
+      description: 'Suspendisse arcu magna, faucibus nec tempor a, fermentum sed justo. Vivamus quis venenatis felis.',
+      from: '2015-06-10',
+      to: '2016-01-30',
+      key: uniqid(),
+    }]);
+  };
 
   const changeGeneral = (e) => {
     const { name, value } = e.target;
@@ -119,8 +175,8 @@ export default function App() {
           />
           <div className="buttons">
             <button className="export-to-pdf" type="button">Export to PDF</button>
-            <button className="load-example" type="button">Load Example</button>
-            <button className="reset" type="button">Reset</button>
+            <button className="load-example" type="button" onClick={loadExample}>Load Example</button>
+            <button className="reset" type="button" onClick={reset}>Reset</button>
           </div>
         </div>
         <Preview
