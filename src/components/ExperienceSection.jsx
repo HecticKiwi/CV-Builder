@@ -28,11 +28,11 @@ export default function ExperienceSection({
           <div className="period">
             <label htmlFor="from">
               <span className="field-label">From:</span>
-              <input className="field-input" type="date" name="from" id="from" value={from} onChange={(e) => handleChange(e, i)} />
+              <input className="field-input" type="month" name="from" id="from" value={from} onChange={(e) => handleChange(e, i)} />
             </label>
             <label htmlFor="to">
               <span className="field-label field-label--to">To:</span>
-              <input className="field-input" type="date" name="to" id="to" value={to} onChange={(e) => handleChange(e, i)} />
+              <input className="field-input" type="month" name="to" id="to" value={to} onChange={(e) => handleChange(e, i)} />
             </label>
           </div>
           <div className="button-group">

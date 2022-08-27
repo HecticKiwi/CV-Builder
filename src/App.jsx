@@ -14,21 +14,8 @@ export default function App() {
     phoneNumber: '',
     description: '',
   };
-  const baseEducation = [{
-    university: '',
-    degree: '',
-    from: '',
-    to: '',
-    key: uniqid(),
-  }];
-  const baseExperience = [{
-    company: '',
-    position: '',
-    description: '',
-    from: '',
-    to: '',
-    key: uniqid(),
-  }];
+  const baseEducation = [];
+  const baseExperience = [];
 
   const [general, setGeneral] = useState(baseGeneral);
   const [education, setEducation] = useState(baseEducation);
@@ -51,39 +38,39 @@ export default function App() {
     setEducation([{
       university: 'University of Awesome',
       degree: 'Bachelor of Engineering',
-      from: '2008-07-02',
-      to: '2012-04-18',
+      from: '2008-07',
+      to: '2012-04',
       key: uniqid(),
     },
     {
       university: 'The Odin Project',
       degree: 'Full Stack Web Development',
-      from: '2010-05-15',
-      to: '2011-02-06',
+      from: '2013-05',
+      to: '2013-02',
       key: uniqid(),
     }]);
     setExperience([{
       company: 'Google',
       position: 'Senior Web Developer',
       description: 'Quisque sed facilisis tortor. Morbi posuere luctus risus sit amet mattis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      from: '2019-01-30',
-      to: '2022-03-21',
+      from: '2019-01',
+      to: '2022-03',
       key: uniqid(),
     },
     {
       company: 'Netflix',
       position: 'Junior Web Developer',
       description: 'Nulla ornare varius pharetra. Duis eget lacinia nibh. Aliquam dapibus eleifend diam, non tristique leo venenatis et. Proin condimentum nisi nunc, sed pharetra lectus tempor ac.',
-      from: '2016-05-27',
-      to: '2018-09-14',
+      from: '2016-05',
+      to: '2018-09',
       key: uniqid(),
     },
     {
       company: 'Spotify',
       position: 'QA Tester',
       description: 'Suspendisse arcu magna, faucibus nec tempor a, fermentum sed justo. Vivamus quis venenatis felis.',
-      from: '2015-06-10',
-      to: '2016-01-30',
+      from: '2015-06',
+      to: '2016-01',
       key: uniqid(),
     }]);
   };
@@ -116,6 +103,7 @@ export default function App() {
   const deleteEducation = (i) => {
     setEducation((prev) => {
       const items = [...prev];
+
       items.splice(i, 1);
       return items;
     });
@@ -151,6 +139,7 @@ export default function App() {
   };
 
   return (
+
     <div className="App">
       <header>
         <h1 className="main-header">CV Builder</h1>
@@ -161,17 +150,17 @@ export default function App() {
             general={general}
             handleChange={changeGeneral}
           />
-          <EducationalSection
-            education={education}
-            handleChange={changeEducation}
-            addItem={addEducation}
-            deleteItem={deleteEducation}
-          />
           <ExperienceSection
             experience={experience}
             handleChange={changeExperience}
             addItem={addExperience}
             deleteItem={deleteExperience}
+          />
+          <EducationalSection
+            education={education}
+            handleChange={changeEducation}
+            addItem={addEducation}
+            deleteItem={deleteEducation}
           />
           <div className="buttons">
             <button className="load-example" type="button" onClick={loadExample}>Load Example</button>
