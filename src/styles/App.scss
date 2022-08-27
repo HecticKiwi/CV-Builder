@@ -21,14 +21,18 @@
     grid-template-rows: min-content 1fr min-content;
 }
 
-header {
+.main-header {
     padding: 0.5rem;
     text-align: center;
     text-decoration: underline;
 }
 
-main {
+.app-main {
     padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 
@@ -44,10 +48,32 @@ a {
 
 .form {
     @include border-shadow();
-    margin: 0 auto;
+    // margin: 0 auto;
     padding: 1.5rem;
-    width: min(800px, 100%);
+    width: min(600px, 100%);
     border-radius: 10px;
     display: grid;
     gap: 2rem;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.buttons button {
+    flex: 1 1 auto;
+}
+
+.load-example {
+    background-color: rgb(236, 224, 199);
+}
+
+.export-to-pdf {
+    background-color: rgb(199, 236, 199);
+}
+
+.reset {
+    background-color: rgb(236, 199, 199);
 }

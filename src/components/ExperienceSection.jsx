@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/FormSection.scss';
 
 export default function ExperienceSection({
   experience, handleChange, addItem, deleteItem,
@@ -7,7 +8,7 @@ export default function ExperienceSection({
   if (experience.length > 0) {
     content = experience.map((item, i) => {
       const {
-        company, city, position, description, from, to, key,
+        company, position, description, from, to, key,
       } = item;
 
       return (
@@ -15,10 +16,6 @@ export default function ExperienceSection({
           <label htmlFor="company">
             <span className="field-label">Company:</span>
             <input type="text" name="company" id="company" className="field-input" value={company} onChange={(e) => handleChange(e, i)} />
-          </label>
-          <label htmlFor="city">
-            <span className="field-label">City:</span>
-            <input type="text" name="city" id="city" className="field-input" value={city} onChange={(e) => handleChange(e, i)} />
           </label>
           <label htmlFor="position">
             <span className="field-label">Position:</span>
@@ -54,7 +51,7 @@ export default function ExperienceSection({
   }
 
   return (
-    <section className="ExperienceSection">
+    <section className="form-section">
       <h2>Experience</h2>
       {content}
     </section>

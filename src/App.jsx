@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './styles/App.scss';
-import './styles/FormSections.scss';
 import uniqid from 'uniqid';
 import GeneralSection from './components/GeneralSection';
 import EducationalSection from './components/EducationalSection';
@@ -10,8 +9,10 @@ import Preview from './components/Preview';
 export default function App() {
   const [general, setGeneral] = useState({
     name: '',
+    title: '',
     email: '',
     phoneNumber: '',
+    description: '',
   });
 
   const [education, setEducation] = useState([{
@@ -24,7 +25,6 @@ export default function App() {
 
   const [experience, setExperience] = useState([{
     company: '',
-    city: '',
     position: '',
     description: '',
     from: '',
@@ -78,7 +78,6 @@ export default function App() {
   const addExperience = () => {
     setExperience((prev) => [...prev, {
       company: '',
-      city: '',
       position: '',
       description: '',
       from: '',
@@ -100,7 +99,7 @@ export default function App() {
       <header>
         <h1 className="main-header">CV Application</h1>
       </header>
-      <main>
+      <main className="app-main">
         <div className="form">
           <GeneralSection
             general={general}
@@ -118,10 +117,17 @@ export default function App() {
             addItem={addExperience}
             deleteItem={deleteExperience}
           />
+          <div className="buttons">
+            <button className="export-to-pdf" type="button">Export to PDF</button>
+            <button className="load-example" type="button">Load Example</button>
+            <button className="reset" type="button">Reset</button>
+          </div>
         </div>
-        <div className="preview">
-          <Preview />
-        </div>
+        <Preview
+          general={general}
+          experience={experience}
+          education={education}
+        />
       </main>
       <footer>
         <p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/FormSection.scss';
 
 export default function EducationalSection({
   education, handleChange, addItem, deleteItem,
@@ -46,7 +47,7 @@ export default function EducationalSection({
   }
 
   return (
-    <section className="EducationalSection">
+    <section className="form-section">
       <h2>Education</h2>
       {content}
     </section>

@@ -1,0 +1,80 @@
+:root {
+    --primary: #313c4e;
+}
+
+@mixin border-shadow {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px;
+}
+
+.Preview {
+    @include border-shadow();
+    width: min(800px, 100%);
+    // padding: 2rem;
+}
+
+address {
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.header {
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 1.2rem;
+}
+
+.email,
+.phone {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+
+    img {
+        width: 25px;
+    }
+}
+
+.preview-main {
+    padding: 2rem;
+}
+
+.section-title {
+    margin-block: 1rem;
+    color: var(--primary);
+}
+
+.list-item {
+    margin-bottom: 0.5rem;
+}
+
+.list-item__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-item__title {
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.list-item__company {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.list-item__period {
+    font-size: 0.8rem;
+    color: gray;
+}
