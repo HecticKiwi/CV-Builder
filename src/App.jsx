@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './styles/App.scss';
 import uniqid from 'uniqid';
+import s from './styles/App.module.scss';
 import GeneralSection from './components/GeneralSection';
 import EducationalSection from './components/EducationalSection';
 import ExperienceSection from './components/ExperienceSection';
@@ -36,7 +36,7 @@ export default function App() {
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Urna cursus eget nunc scelerisque viverra. Imperdiet proin fermentum leo vel orci. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Nullam vehicula ipsum a arcu cursus vitae congue mauris.',
     });
     setEducation([{
-      university: 'University of Awesome',
+      university: 'University of Alberta',
       degree: 'Bachelor of Engineering',
       from: '2008-07',
       to: '2012-04',
@@ -140,12 +140,12 @@ export default function App() {
 
   return (
 
-    <div className="App">
+    <div className={s.App}>
       <header>
-        <h1 className="main-header">CV Builder</h1>
+        <h1 className={s.header}>CV Builder</h1>
       </header>
-      <main className="app-main">
-        <div className="form">
+      <main className={s.main}>
+        <div className={s.form}>
           <GeneralSection
             general={general}
             handleChange={changeGeneral}
@@ -162,9 +162,9 @@ export default function App() {
             addItem={addEducation}
             deleteItem={deleteEducation}
           />
-          <div className="buttons">
-            <button className="load-example" type="button" onClick={loadExample}>Load Example</button>
-            <button className="reset" type="button" onClick={reset}>Reset</button>
+          <div className={s.buttons}>
+            <button className={s.loadExample} type="button" onClick={loadExample}>Load Example</button>
+            <button className={s.reset} type="button" onClick={reset}>Reset</button>
           </div>
         </div>
         <Preview

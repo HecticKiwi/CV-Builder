@@ -21,14 +21,14 @@
     grid-template-rows: min-content 1fr min-content;
 }
 
-.main-header {
+.header {
     margin-block: 0.5rem;
     padding: 0.5rem;
     text-align: center;
     text-decoration: underline;
 }
 
-.app-main {
+.main {
     padding: 0 2rem;
     display: flex;
     flex-wrap: wrap;
@@ -68,7 +68,7 @@ a {
     flex: 1 1 auto;
 }
 
-.load-example {
+.loadExample {
     background-color: rgb(236, 224, 199);
 }
 

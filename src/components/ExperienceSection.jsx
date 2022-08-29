@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/FormSection.scss';
+import s from '../styles/FormSection.module.scss';
 
 export default function ExperienceSection({
   experience, handleChange, addItem, deleteItem,
@@ -12,46 +12,46 @@ export default function ExperienceSection({
       } = item;
 
       return (
-        <div className="form-item" key={key}>
+        <div className={s.formItem} key={key}>
           <label htmlFor="company">
-            <span className="field-label">Company:</span>
-            <input type="text" name="company" id="company" className="field-input" value={company} onChange={(e) => handleChange(e, i)} />
+            <span className={s.fieldLabel}>Company:</span>
+            <input type="text" name="company" id="company" className={s.fieldInput} value={company} onChange={(e) => handleChange(e, i)} />
           </label>
           <label htmlFor="position">
-            <span className="field-label">Position:</span>
-            <input type="text" name="position" id="position" className="field-input" value={position} onChange={(e) => handleChange(e, i)} />
+            <span className={s.fieldLabel}>Position:</span>
+            <input type="text" name="position" id="position" className={s.fieldInput} value={position} onChange={(e) => handleChange(e, i)} />
           </label>
           <label htmlFor="description">
-            <span className="field-label">Description:</span>
-            <input type="text" name="description" id="description" className="field-input" value={description} onChange={(e) => handleChange(e, i)} />
+            <span className={s.fieldLabel}>Description:</span>
+            <input type="text" name="description" id="description" className={s.fieldInput} value={description} onChange={(e) => handleChange(e, i)} />
           </label>
-          <div className="period">
+          <div className={s.period}>
             <label htmlFor="from">
-              <span className="field-label">From:</span>
-              <input className="field-input" type="month" name="from" id="from" value={from} onChange={(e) => handleChange(e, i)} />
+              <span className={s.fieldLabel}>From:</span>
+              <input className={s.fieldInput} type="month" name="from" id="from" value={from} onChange={(e) => handleChange(e, i)} />
             </label>
             <label htmlFor="to">
-              <span className="field-label field-label--to">To:</span>
-              <input className="field-input" type="month" name="to" id="to" value={to} onChange={(e) => handleChange(e, i)} />
+              <span className={`${s.fieldLabel} ${s.fieldLabel_to}`}>To:</span>
+              <input className={s.fieldInput} type="month" name="to" id="to" value={to} onChange={(e) => handleChange(e, i)} />
             </label>
           </div>
-          <div className="button-group">
-            <button className="delete" type="button" onClick={deleteItem}>Delete</button>
-            {i === experience.length - 1 && <button className="add" type="button" onClick={addItem}>Add</button>}
+          <div className={s.buttonGroup}>
+            <button className={s.delete} type="button" onClick={deleteItem}>Delete</button>
+            {i === experience.length - 1 && <button className={s.add} type="button" onClick={addItem}>Add</button>}
           </div>
         </div>
       );
     });
   } else {
     content = (
-      <div className="button-group">
-        <button className="add" type="button" onClick={addItem}>Add</button>
+      <div className={s.buttonGroup}>
+        <button className={s.add} type="button" onClick={addItem}>Add</button>
       </div>
     );
   }
 
   return (
-    <section className="form-section">
+    <section className={s.section}>
       <h2>Experience</h2>
       {content}
     </section>

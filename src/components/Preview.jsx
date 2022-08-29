@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Preview.scss';
+import s from '../styles/Preview.module.scss';
 
 const emailSVG = require('../img/email.svg').default;
 const phoneSVG = require('../img/phone.svg').default;
@@ -11,72 +11,72 @@ export default function Preview(props) {
   } = general;
 
   const experienceItems = experience.map((item) => (
-    <div className="list-item" key={item.key}>
-      <div className="list-item__header">
-        <span>
-          <span className="list-item__title">{item.position}</span>
-          <span className="list-item__company">
+    <div className={s.item} key={item.key}>
+      <div className={s.item__header}>
+        <div>
+          <span className={s.item__title}>{item.position}</span>
+          <span className={s.item__company}>
             {' at '}
             {item.company}
           </span>
-        </span>
-        <span className="list-item__period">
+        </div>
+        <div className={s.item__period}>
           {item.from}
           {' to '}
           {item.to}
-        </span>
+        </div>
       </div>
       <p>{item.description}</p>
     </div>
   ));
 
   const educationItems = education.map((item) => (
-    <div className="list-item" key={item.key}>
-      <div className="list-item__header">
-        <span>
-          <span className="list-item__title">{item.degree}</span>
-          <span className="list-item__company">
+    <div className={s.item} key={item.key}>
+      <div className={s.item__header}>
+        <div>
+          <span className={s.item__title}>{item.degree}</span>
+          <span className={s.item__company}>
             {' at '}
             {item.university}
           </span>
-        </span>
-        <span className="list-item__period">
+        </div>
+        <div className={s.item__period}>
           {item.from}
           {' to '}
           {item.to}
-        </span>
+        </div>
       </div>
     </div>
   ));
 
   return (
-    <div className="Preview">
-      <header className="header">
-        <div className="name-title">
+    <div className={s.Preview}>
+      <header className={s.header}>
+        <div>
           <h1>{name}</h1>
-          <span className="title">{title}</span>
+          <span className={s.title}>{title}</span>
         </div>
-        <address className="contact">
-          <div className="email">
+        <address className={s.contact}>
+          <div className={s.email}>
             <img src={emailSVG} alt="" />
             <span>{email}</span>
           </div>
-          <div className="phone">
+          <div className={s.phone}>
             <img src={phoneSVG} alt="" />
             <span>{phoneNumber}</span>
           </div>
         </address>
       </header>
-      <main className="preview-main">
-        <section className="description">
+      <main className={s.main}>
+        <section className={s.description}>
           <p>{description}</p>
         </section>
-        <section className="experience">
-          <h2 className="section-title">Experience</h2>
+        <section className={s.experience}>
+          <h2 className={s.sectionTitle}>Experience</h2>
           {experienceItems}
         </section>
-        <section className="experience">
-          <h2 className="section-title">Education</h2>
+        <section className={s.experience}>
+          <h2 className={s.sectionTitle}>Education</h2>
           {educationItems}
         </section>
       </main>

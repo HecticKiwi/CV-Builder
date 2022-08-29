@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/FormSection.scss';
+import s from '../styles/FormSection.module.scss';
 
 export default function EducationalSection({
   education, handleChange, addItem, deleteItem,
@@ -12,42 +12,42 @@ export default function EducationalSection({
       } = item;
 
       return (
-        <section className="form-item" key={key}>
+        <section className={s.formItem} key={key}>
           <label htmlFor="university">
-            <span className="field-label">University:</span>
-            <input className="field-input" type="text" name="university" id="university" value={university} onChange={(e) => handleChange(e, i)} />
+            <span className={s.fieldLabel}>University:</span>
+            <input className={s.fieldInput} type="text" name="university" id="university" value={university} onChange={(e) => handleChange(e, i)} />
           </label>
           <label htmlFor="degree">
-            <span className="field-label">Degree:</span>
-            <input className="field-input" type="text" name="degree" id="degree" value={degree} onChange={(e) => handleChange(e, i)} />
+            <span className={s.fieldLabel}>Degree:</span>
+            <input className={s.fieldInput} type="text" name="degree" id="degree" value={degree} onChange={(e) => handleChange(e, i)} />
           </label>
-          <div className="period">
+          <div className={s.period}>
             <label htmlFor="from">
-              <span className="field-label">From:</span>
-              <input className="field-input" type="month" name="from" id="from" value={from} onChange={(e) => handleChange(e, i)} />
+              <span className={s.fieldLabel}>From:</span>
+              <input className={s.fieldInput} type="month" name="from" id="from" value={from} onChange={(e) => handleChange(e, i)} />
             </label>
             <label htmlFor="to">
-              <span className="field-label field-label--to">To:</span>
-              <input className="field-input" type="month" name="to" id="to" value={to} onChange={(e) => handleChange(e, i)} />
+              <span className={`${s.fieldLabel} ${s.fieldLabel_to}`}>To:</span>
+              <input className={s.fieldInput} type="month" name="to" id="to" value={to} onChange={(e) => handleChange(e, i)} />
             </label>
           </div>
-          <div className="button-group">
-            <button className="delete" type="button" onClick={() => deleteItem(i)}>Delete</button>
-            {i === education.length - 1 && <button className="add" type="button" onClick={addItem}>Add</button>}
+          <div className={s.buttonGroup}>
+            <button className={s.delete} type="button" onClick={() => deleteItem(i)}>Delete</button>
+            {i === education.length - 1 && <button className={s.add} type="button" onClick={addItem}>Add</button>}
           </div>
         </section>
       );
     });
   } else {
     content = (
-      <div className="button-group">
-        <button className="add" type="button" onClick={addItem}>Add</button>
+      <div className={s.buttonGroup}>
+        <button className={s.add} type="button" onClick={addItem}>Add</button>
       </div>
     );
   }
 
   return (
-    <section className="form-section">
+    <section className={s.section}>
       <h2>Education</h2>
       {content}
     </section>
