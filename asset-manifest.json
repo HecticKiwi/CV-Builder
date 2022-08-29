@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CV-Builder/static/css/main.1f15684f.css",
+    "main.js": "/CV-Builder/static/js/main.5b32b34a.js",
+    "index.html": "/CV-Builder/index.html",
+    "static/media/phone.svg": "/CV-Builder/static/media/phone.d7553f5e6f3b4f092751b479a5b3a928.svg",
+    "static/media/email.svg": "/CV-Builder/static/media/email.70ed7f9d64781eb18e8fb41d338f6408.svg",
+    "main.1f15684f.css.map": "/CV-Builder/static/css/main.1f15684f.css.map",
+    "main.5b32b34a.js.map": "/CV-Builder/static/js/main.5b32b34a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f15684f.css",
+    "static/js/main.5b32b34a.js"
+  ]
+}
