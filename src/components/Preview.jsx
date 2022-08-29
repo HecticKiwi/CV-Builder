@@ -21,9 +21,9 @@ export default function Preview(props) {
           </span>
         </div>
         <div className={s.item__period}>
-          {item.from}
+          <span className={s.from}>{item.from}</span>
           {' to '}
-          {item.to}
+          <span className={s.to}>{item.to}</span>
         </div>
       </div>
       <p>{item.description}</p>
@@ -41,9 +41,9 @@ export default function Preview(props) {
           </span>
         </div>
         <div className={s.item__period}>
-          {item.from}
+          <span className={s.from}>{item.from}</span>
           {' to '}
-          {item.to}
+          <span className={s.to}>{item.to}</span>
         </div>
       </div>
     </div>

@@ -173,11 +173,11 @@ export default function App() {
           education={education}
         />
       </main>
-      <footer>
+      <footer className={s.footer}>
         <p>
           By
           {' '}
-          <a href="https://hectickiwi.github.io/">HecticKiwi</a>
+          <a href="https://hectickiwi.github.io/" target="_blank" rel="noreferrer">HecticKiwi</a>
         </p>
       </footer>
     </div>
